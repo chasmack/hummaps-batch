@@ -25,13 +25,50 @@ import re
 # For example, the SW/4 of the SW/4 is coded with the letter "M". All characters
 # in a trs path are upper case. No zero padding of numeric values is permitted.
 # No space or other punctuation is permitted within a trs path.
+#
+# A trs path spec represents one or more trs paths. The leaf node of a path spec
+# can be a single label or a comma separated list of labels and label ranges.
+#
+# 4N.1W.12
+# 4N.1W.1,2,10,11,12
+# 4N.1W.1,2,10-12
+# 4N.1W.11.C
+# 4N.1W.11.A,B,C,D,G,H
+# 4N.1W.11.A-D,G,H
+#
+# Commas are optional in the subsection list.
+#
+# 4N.1W.11.ABCDGH
+# 4N.1W.11.A-DGH
+# 4N.1W.11.A-D,GH
+#
+# No space or other punctuation is permitted within an individual trs path spec.
+# An optional semicolon and one or more spaces separate multiple trs path specs.
+#
+# 4N.1W.1.A-D 5N.1W.36.M-P
+# 4N.1W.1.A-D; 5N.1W.36.M-P
+#
 
-TOWNSHIP_NORTH_MAX = 15
-TOWNSHIP_SOUTH_MAX = 5
-RANGE_EAST_MAX = 8
-RANGE_WEST_MAX = 3
 
+# Generate a sort key for individual trs paths.
+def trs_path_sortkey(path):
+    lables = path.split('.')
+    key = lables[0][-1] + lables[0][0:-1].zfill(2) + lables[1][-1] + lables[1][0:-1].zfill(2)
+    if len(lables) > 2:
+        key += lables[2].zfill(2)
+    if len(lables) > 3:
+        key += lables[3]
+    return key
+
+
+# Validate an individual trs path.
 def validate_path(path):
+
+    TOWNSHIP_NORTH_MAX = 15
+    TOWNSHIP_SOUTH_MAX = 5
+    RANGE_EAST_MAX = 8
+    RANGE_WEST_MAX = 3
+
     m = re.fullmatch('([1-3]?\d[NS])\.([1-3]?\d[EW])\.([1-3]?\d)(?:\.[A-P])?', path)
     if m is None:
         return False
@@ -49,43 +86,12 @@ def validate_path(path):
 
     return True
 
-# A trs path spec represents one or more trs paths.
-# The leaf node of a path spec can be a single label or
-# a comma separated list of labels and label ranges.
-#
-# 4N.1W.12
-# 4N.1W.1,2,10,11,12
-# 4N.1W.1,2,10-12
-# 4N.1W.11.C
-# 4N.1W.11.A,B,C,D,G,H
-# 4N.1W.11.A-D,G,H
-#
-# Commas are optional in the subsection list.
-#
-# 4N.1W.11.ABCDGH
-# 4N.1W.11.A-DGH
-# 4N.1W.11.A-D,GH
-#
-# No space or other punctuation is permitted within an individual trs path spec.
-# Multiple trs path specs are separated with one or more spaces.
-#
-# 4N.1W.1.A-D 5N.1W.36.M-P
-#
 
-def path_sortkey(path):
-    lables = path.split('.')
-    key = lables[0][-1] + lables[0][0:-1].zfill(2) + lables[1][-1] + lables[1][0:-1].zfill(2)
-    if len(lables) > 2:
-        key += lables[2].zfill(2)
-    if len(lables) > 3:
-        key += lables[3]
-    return key
-
-# expand_paths - extract trs paths form one or more trs path specs.
+# Extract sorted list of trs paths form one or more trs path specs.
 def expand_paths(path_specs):
 
     paths = []
-    for path_spec in path_specs.split():
+    for path_spec in re.split(';?\s+', path_specs.strip()):
 
         # Check for a simple path
         if validate_path(path_spec):
@@ -136,7 +142,7 @@ def expand_paths(path_specs):
         raise ValueError('Bad path spec: ' + path_spec)
 
     # Sort paths and remove dulpicates
-    paths.sort(key=path_sortkey)
+    paths.sort(key=trs_path_sortkey)
     i = 1
     while i < len(paths):
         if paths[i] == paths[i - 1]:
@@ -145,6 +151,7 @@ def expand_paths(path_specs):
             i += 1
 
     return paths
+
 
 # abbrev_paths - create a set of trs path specs from a list of trs paths.
 def abbrev_paths(paths):
@@ -156,7 +163,7 @@ def abbrev_paths(paths):
 
     sec_list = {}
     ss_list = {}
-    for path in sorted(paths, key=path_sortkey):
+    for path in sorted(paths, key=trs_path_sortkey):
 
         if not validate_path(path):
             raise ValueError('Invalid path: ' + path)
@@ -180,13 +187,12 @@ def abbrev_paths(paths):
                 ss_list[tr][sec].append(subsec)
 
     # Create a list of abbreviated paths using character class like leaf nodes.
-
     abbrevs = []
-    for tr in sorted(sec_list.keys(), key=path_sortkey):
+    for tr in sorted(sec_list.keys(), key=trs_path_sortkey):
         secs = sec_list[tr]
         if len(secs) == 1:
             # Single section in this township.
-            abbrevs.append(tr + '.' + str(sec))
+            abbrevs.append(tr + '.' + str(secs[0]))
         else:
             # Multiple sections this township will be grouped into a class.
             specs = [str(secs[0])]
@@ -207,7 +213,7 @@ def abbrev_paths(paths):
 
             abbrevs.append(tr + '.' + ','.join(specs))
 
-    for tr in sorted(ss_list.keys(), key=path_sortkey):
+    for tr in sorted(ss_list.keys(), key=trs_path_sortkey):
         for sec in sorted(ss_list[tr].keys(), key=int):
             subsecs = ss_list[tr][sec]
             if len(subsecs) == 1:
@@ -231,21 +237,22 @@ def abbrev_paths(paths):
 
                 abbrevs.append(tr + '.' + str(sec) + '.' + ','.join(specs))
 
-    return abbrevs
+    return sorted(abbrevs, key=trs_path_sortkey)
 
 
 if __name__ == '__main__':
 
-    paths = '7N.5E.12 7N.4E.1,2,4-8,15,23,24,25 ' + \
-            '4N.1W.7.A,C-F,H,I,J,L,N,O,P 4N.1E.3.KLOP ' + \
+    paths = '7N.5E.12; 7N.4E.1,2,4-8,15,23,24,25; ' + \
+            '4N.1W.7.A,C-F,H,I,J,L,N,O,P; 4N.1E.3.KLOP; ' + \
             '4N.1E.3.IJMNKLOP'
 
-    paths = expand_paths(paths)
+    paths = expand_paths('5N.1E.5,8,9; 6N.1E.33; 5N.1E.4.A,B,E,F,I,J,M,N; 6N.1E.33.M,N')
     for path in paths:
         print(path)
 
     print()
 
+    paths = ['5N.1E.4.A', '5N.1E.4.B', '5N.1E.4.E', '5N.1E.4.F', '5N.1E.4.I', '5N.1E.4.J', '5N.1E.4.M', '5N.1E.4.N', '5N.1E.5', '5N.1E.8', '5N.1E.9', '6N.1E.32', '6N.1E.33.M', '6N.1E.33.N']
     abbrevs = abbrev_paths(paths)
     for abbrev in abbrevs:
         print(abbrev)

@@ -1,36 +1,208 @@
 import psycopg2
 import requests
 from openpyxl import load_workbook
+from dateutil.parser import parse
+import datetime
+from trs_path import expand_paths, abbrev_paths, trs_path_sortkey
 import re
 
 from const import *
 
-def cleanup_surveyors():
+def check_maps():
 
     with psycopg2.connect(DSN_PROD) as con, con.cursor() as cur:
-        cur.execute("""
-            SELECT
-                initcap(concat_ws(' ', firstname, secondname, thirdname, lastname, suffix)) n1,
-                concat_ws(' ', firstname, substring(secondname for 1), substring(thirdname for 1), lastname, suffix) n2
-            FROM {table_surveyor};
-        """.format(table_surveyor=TABLE_PROD_SURVEYOR))
 
-        surveyor = dict(cur)
+        # Get the maptypes
+        cur.execute('SELECT t.maptype FROM {table_maptype} t;'
+        .format(table_maptype=TABLE_PROD_MAPTYPE))
+        maptypes = list(v[0] for v in cur)
 
-    wb = load_workbook(XLSX_DATA_MAP)
-    ws = wb.active
-    ws_cols = list(c.value for c in ws[1])
-    for cell in (dict(zip(ws_cols, row)) for row in ws.iter_rows(min_row=2)):
+        # Get the surveyors and hollins aliases
+        surveyors = []
+        hollins_surveyor = {}
+        wb = load_workbook(XLSX_DATA_SURVEYOR, read_only=True)
+        xl = wb.active
+        ws_cols = list(c.value for c in xl[1])
+        for ws_row in xl.iter_rows(min_row=2):
+            xl = dict(zip((v.lower() for v in ws_cols), (v.value for v in ws_row)))
+            surveyors.append(xl['fullname'])
+            hollins_surveyor[xl['hollins_fullname']] = xl['fullname']
+        wb.close()
 
-        key = re.sub('\s+\(.*', '', cell['SURVEYORS'].value)
-        if key in surveyor:
-            cell['SURVEYORS'].value = surveyor[key]
-        elif key not in surveyor.values():
-            print('Surveyor not found: %s' % cell['SURVEYORS'].value)
-        else:
-            print('Skipping: %s' % cell['SURVEYORS'].value)
+        # Get the parcel map numbers indexed by book/page
+        pm_number = {}
+        wb = load_workbook(XLSX_DATA_PM, read_only=True)
+        xl = wb.active
+        ws_cols = list(c.value for c in xl[1])
+        for ws_row in xl.iter_rows(min_row=2):
+            xl = dict(zip((v.lower() for v in ws_cols), (v.value for v in ws_row)))
+            book_page = '{1} {0} {2}'.format(xl['maptype'], xl['book'], xl['page'])
+            pm_number[book_page] = '(PM%s)' % xl['pm_number']
+        wb.close()
 
-    wb.save(filename=XLSX_DATA_MAP)
+        # Get the subdivision tract numbers indexed by book/page
+        tract_number = {}
+        wb = load_workbook(XLSX_DATA_TRACT, read_only=True)
+        xl = wb.active
+        ws_cols = list(c.value for c in xl[1])
+        for ws_row in xl.iter_rows(min_row=2):
+            xl = dict(zip((v.lower() for v in ws_cols), (v.value for v in ws_row)))
+            book_page = '{1} {0} {2}'.format(xl['maptype'], xl['book'], xl['page'])
+            tract_number[book_page] = '(TR%s)' % xl['tract_number']
+        wb.close
+
+        # Get the Excel map data
+        wb = load_workbook(XLSX_DATA_MAP)
+        xl = wb.active
+        ws_cols = list(c.value for c in xl[1])
+
+        sql = """
+            WITH q1 AS (
+                SELECT m.id map_id
+                FROM {table_map} m
+                JOIN {table_maptype} t ON t.id = m.maptype_id
+                WHERE t.maptype = %s AND m.book = %s AND m.page = %s
+            ), q2 AS (
+                SELECT q1.map_id, array_remove(array_agg(p.trs_path::text), NULL) trs_paths
+                FROM q1
+                LEFT JOIN {table_trs_path} p USING (map_id)
+                GROUP BY q1.map_id
+            ), q3 AS (
+                SELECT q1.map_id, array_remove(array_agg(s.fullname), NULL) surveyors
+                FROM q1
+                LEFT JOIN {table_signed_by} sb USING (map_id)
+                LEFT JOIN {table_surveyor} s ON s.id = sb.surveyor_id
+                GROUP BY q1.map_id
+            )
+            SELECT q1.map_id,
+                m.npages, m.recdate, m.client, m.description, m.note,
+                q2.trs_paths, q3.surveyors
+            FROM {table_map} m
+            JOIN q1 ON q1.map_id = m.id
+            LEFT JOIN q2 ON q2.map_id = m.id
+            LEFT JOIN q3 ON q3.map_id = m.id
+            ;
+        """.format(
+            table_map=TABLE_PROD_MAP,
+            table_maptype=TABLE_PROD_MAPTYPE,
+            table_trs_path=TABLE_PROD_TRS_PATH,
+            table_signed_by=TABLE_PROD_SIGNED_BY,
+            table_surveyor=TABLE_PROD_SURVEYOR
+        )
+
+        for ws_row in xl.iter_rows(min_row=2):
+            xl = dict(zip((v.lower() for v in ws_cols), (v.value for v in ws_row)))
+            xl_cell = dict(zip((v.lower() for v in ws_cols), ws_row))
+
+            if any(v is None for v in (xl['maptype'], xl['book'], xl['page'])):
+                if all(c.value is None for c in ws_row):
+                    continue    # Blank lines are permitted
+                print('ERROR: Missing maptype/book/page: row=%d' % (ws_row[0].row))
+                exit(-1)
+
+            # Validate maptype/book/page
+            if xl['maptype'] not in maptypes:
+                print('ERROR: Bad maptype: row=%d, maptype=%s' % (ws_row[0].row, str(xl['maptype'])))
+                exit(-1)
+            xl_maptype = xl['maptype']
+            if type(xl['book']) is int:
+                xl_book = xl['book']
+            else:
+                try:
+                    xl_cell['book'].value = xl_book = int(xl['book'])
+                except ValueError as err:
+                    print('ERROR: Bad book number: row=%d, book=%s' % (ws_row[0].row, str(xl['book'])))
+                    exit(-1)
+            if type(xl['page']) is int:
+                xl_page = xl['page']
+            else:
+                try:
+                    xl_cell['page'].value = xl_page = int(xl['page'])
+                except ValueError as err:
+                    print('ERROR: Bad page number: row=%d, page=%s' % (ws_row[0].row, str(xl['page'])))
+                    exit(-1)
+            book_page = '%d %s %d' % (xl_book, xl_maptype, xl_page)
+
+            # Validate any trs path spec
+            try:
+                xl_paths = expand_paths(xl['trs_paths']) if xl['trs_paths'] else []
+            except ValueError as err:
+                print('ERROR: %s: %s' % (book_page, err))
+                exit(-1)
+
+            # Validate recdate
+
+            if xl['recdate'] is None:
+                xl_recdate = None
+            elif type(xl['recdate']) is datetime.datetime:
+                xl_recdate = xl['recdate'].date()
+            else:
+                try:
+                    xl_cell['recdate'].value  = xl_recdate = parse(xl['recdate']).date()
+                except Exception as err:
+                    print('ERROR: %s: Bad recdate: %s' % (book_page, err))
+                    exit(-1)
+
+            # Validate surveyors
+            xl_surveyors = sorted(re.split('\s*,\s*', xl['surveyors'])) if xl['surveyors'] else []
+            for i in range(len(xl_surveyors)):
+                if xl_surveyors[i] in hollins_surveyor:
+                    # replace hollins fullanme with hummaps fullname
+                    xl_surveyors[i] = hollins_surveyor[xl_surveyors[i]]
+                    xl_cell['surveyors'].value = ', '.join(xl_surveyors)
+                elif xl_surveyors[i] not in surveyors:
+                    print('ERROR: %s: Missing surveyor: %s' % (book_page, xl_surveyors[i]))
+                    exit(-1)
+
+            # Need to add parcel map/tract numbers to client records
+            xl_client = xl['client']
+            if xl['maptype'] == 'Parcel Map':
+                if book_page in pm_number:
+                    xl_client += ' ' + pm_number[book_page]
+                else:
+                    print('WARNING: %s: No PM number found.' % book_page)
+            elif xl['maptype'] == 'Record Map':
+                if book_page in tract_number:
+                    xl_client += ' ' + tract_number[book_page]
+                else:
+                    print('WARNING: %s: No Tract number found.' % book_page)
+
+            # Fetch the database record
+            cur.execute(sql, (xl['maptype'], xl['book'], xl['page']))
+
+            if cur.rowcount == 0:
+                print('%s: No database record.' % book_page)
+                continue
+            if cur.rowcount > 1:
+                print('ERROR: %s: Multiple database records.' % book_page)
+                exit(-1)
+            db = dict(zip((v.name for v in cur.description), cur.fetchone()))
+
+            # Compare worksheet and database data
+            db_paths = sorted(db['trs_paths'], key=trs_path_sortkey)
+            if xl_paths != db_paths:
+                xl_paths = '; '.join(abbrev_paths(xl_paths)) if xl_paths else None
+                db_paths = '; '.join(abbrev_paths(db_paths)) if db_paths else None
+                print('%s: Compare trs_paths: xl=%s db=%s' % (book_page, xl_paths, db_paths))
+
+            db_surveyors = sorted(db['surveyors'])
+            if xl_surveyors != db_surveyors:
+                print('%s: Compare surveyors: xl=%s db=%s' % (book_page, xl_surveyors, db_surveyors))
+
+            db_recdate = db['recdate']
+            if xl_recdate != db_recdate:
+                print('%s: Compare recdate: xl=%s db=%s' % (book_page, xl_recdate, db_recdate))
+
+            db_client = db['client']
+            if xl_client != db_client:
+                print('%s: Compare client: xl=%s db=%s' % (book_page, xl_client, db_client))
+
+            for c in ('map_id', 'npages', 'description', 'note'):
+                if xl[c] != db[c]:
+                    print('%s: Compare %s: xl=%s db=%s' % (book_page, c, str(xl[c]), str(db[c])))
+
+    # wb.save(filename=XLSX_DATA_MAP)
+    wb.close()
 
 
 def update_maps():
@@ -125,4 +297,4 @@ def update_maps():
 
 if __name__ == '__main__':
 
-    cleanup_surveyors()
+    check_maps()
