@@ -87,11 +87,11 @@ def validate_path(path):
     return True
 
 
-# Extract sorted list of trs paths form one or more trs path specs.
+# Extract sorted list of trs paths form a list of trs path specs.
 def expand_paths(path_specs):
 
     paths = []
-    for path_spec in re.split(';?\s+', path_specs.strip()):
+    for path_spec in path_specs:
 
         # Check for a simple path
         if validate_path(path_spec):
@@ -230,10 +230,18 @@ def abbrev_paths(paths):
                         else:
                             specs.append(subsecs[i])
                     elif len(specs) > 1 and '-' not in specs[-2] and ord(subsecs[i]) - ord(specs[-2]) == 2:
-                        # Replace last tow specs in the list with a new range.
+                        # Replace last two specs in the list with a new range.
                         specs[-2:] = ['%s-%s' % (specs[-2], subsecs[i])]
                     else:
                         specs.append(subsecs[i])
+
+                i = 1
+                while i < len(specs):
+                    if any('-' in spec for spec in specs[i-1:i+1]):
+                        i += 1
+                    else:
+                        # Collapse non-range subsec codes into strings
+                        specs[i-1:i+1] = [specs[i - 1] + specs[i]]
 
                 abbrevs.append(tr + '.' + str(sec) + '.' + ','.join(specs))
 
@@ -242,17 +250,14 @@ def abbrev_paths(paths):
 
 if __name__ == '__main__':
 
-    paths = '7N.5E.12; 7N.4E.1,2,4-8,15,23,24,25; ' + \
-            '4N.1W.7.A,C-F,H,I,J,L,N,O,P; 4N.1E.3.KLOP; ' + \
-            '4N.1E.3.IJMNKLOP'
+    path_specs = '5N.1E.5,8,9; 6N.1E.33; 5N.1E.4.A-DEFIJKMN; 6N.1E.33.MN; 3N.1W.34.ABEFGHKLOP'
 
-    paths = expand_paths('5N.1E.5,8,9; 6N.1E.33; 5N.1E.4.A,B,E,F,I,J,M,N; 6N.1E.33.M,N')
+    paths = expand_paths(re.split(';?\s+', path_specs))
     for path in paths:
         print(path)
 
     print()
 
-    paths = ['5N.1E.4.A', '5N.1E.4.B', '5N.1E.4.E', '5N.1E.4.F', '5N.1E.4.I', '5N.1E.4.J', '5N.1E.4.M', '5N.1E.4.N', '5N.1E.5', '5N.1E.8', '5N.1E.9', '6N.1E.32', '6N.1E.33.M', '6N.1E.33.N']
     abbrevs = abbrev_paths(paths)
     for abbrev in abbrevs:
         print(abbrev)

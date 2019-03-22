@@ -1,7 +1,7 @@
 
 # const.py - common constants
 
-XLSX_DATA_MAP = 'data/map.xlsx'
+XLSX_DATA_MAP = 'data/update65.xlsx'
 XLSX_DATA_SURVEYOR = 'data/surveyor.xlsx'
 XLSX_DATA_PM = 'data/pm.xlsx'
 XLSX_DATA_TRACT = 'data/tract.xlsx'
@@ -19,12 +19,19 @@ MAPTYPES = (
     ("Unrecorded Map", "UR"),
 )
 
-# Source list for the trs records
+# Source values for legacy trs records
 TRS_SOURCE_HOLLINS_SECTION = 0
 TRS_SOURCE_HOLLINS_SUBSECTION = 1
 TRS_SOURCE_PARSED_SECTION = 2
 TRS_SOURCE_PARSED_SUBSECTION = 3
 TRS_SOURCE_XLSX_DATA = 4
+
+# Source id for current trs records
+TRS_SOURCE = {
+    'source_id': 10,
+    'description': 'Batch update 65',
+    'quality': None
+}
 
 PG_USER_POSTGRES = 'postgres'
 PG_USER_ADMIN = 'pgadmin'
@@ -97,3 +104,7 @@ TABLE_PROD_SOURCE = SCHEMA_PROD + '.' + 'source'
 TABLE_PROD_SURVEYOR = SCHEMA_PROD + '.' + 'surveyor'
 TABLE_PROD_TRS = SCHEMA_PROD + '.' + 'trs'
 TABLE_PROD_TRS_PATH = SCHEMA_PROD + '.' + 'trs_path'
+
+SEQUENCE_PROD_MAP_ID = SCHEMA_PROD + '.' + 'map_id_seq'
+SEQUENCE_PROD_SURVEYOR_ID = SCHEMA_PROD + '.' + 'surveyor_id_seq'
+SEQUENCE_PROD_TRS_PATH_ID = SCHEMA_PROD + '.' + 'trs_path_id_seq'
