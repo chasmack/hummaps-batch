@@ -8,15 +8,12 @@ import re
 from const import *
 
 
-def update_map(do_update):
+def update_map(update_db):
 
     with psycopg2.connect(DSN_PROD) as con, con.cursor() as cur:
 
-        # Get maptype abbreviations indexed by maptype
-        cur.execute("""
-            SELECT t.maptype, lower(t.abbrev) FROM {table_maptype} t;
-        """.format(table_maptype=TABLE_PROD_MAPTYPE))
-        maptype_abbrev = dict(cur)
+        # Get the update workbook
+        wb = load_workbook(XLSX_DATA_MAP, read_only=True)
 
         # Get maptype ids indexed by maptype
         cur.execute("""
@@ -30,29 +27,23 @@ def update_map(do_update):
                """.format(table_surveyor=TABLE_PROD_SURVEYOR))
         surveyor_id = dict(cur)
 
-        # Get the parcel map numbers as strings indexed by book/page
+        # Get the parcel map numbers indexed by book-page
         pm_number = {}
-        wb = load_workbook(XLSX_DATA_PM, read_only=True)
-        ws = wb.active
+        ws = wb['pm_number']
         xl_cols = list(c.value for c in ws[1])
-        for row in ws.iter_rows(min_row=2):
-            xl_val = dict(zip((k.lower() for k in xl_cols), (c.value for c in row)))
-            book_page = '{:03d}{:s}{:03d}'.format(
-                xl_val['book'], maptype_abbrev[xl_val['maptype']], xl_val['page'])
-            pm_number[book_page] = str(xl_val['pm_number'])
-        wb.close()
+        for xl_row in ws.iter_rows(min_row=2):
+            xl_rec = dict(zip((k.lower() for k in xl_cols), (c.value for c in xl_row)))
+            book_page = '%s-%s' % (xl_rec['book'], xl_rec['page'])
+            pm_number[book_page] = xl_rec['pm_number']
 
-        # Get the subdivision tract numbers as strings indexed by book/page
+        # Get the subdivision tract numbers indexed by book-page
         tract_number = {}
-        wb = load_workbook(XLSX_DATA_TRACT, read_only=True)
-        ws = wb.active
+        ws = wb['tract_number']
         xl_cols = list(c.value for c in ws[1])
-        for row in ws.iter_rows(min_row=2):
-            xl_val = dict(zip((k.lower() for k in xl_cols), (c.value for c in row)))
-            book_page = '{:03d}{:s}{:03d}'.format(
-                xl_val['book'], maptype_abbrev[xl_val['maptype']], xl_val['page'])
-            tract_number[book_page] = str(xl_val['tract_number'])
-        wb.close
+        for xl_row in ws.iter_rows(min_row=2):
+            xl_rec = dict(zip((k.lower() for k in xl_cols), (c.value for c in xl_row)))
+            book_page = '%s-%s' % (xl_rec['book'], xl_rec['page'])
+            tract_number[book_page] = xl_rec['tract_number']
 
         # Query to retreive map info, surveyors and trs paths
         sql = """
@@ -74,11 +65,6 @@ def update_map(do_update):
             table_surveyor=TABLE_PROD_SURVEYOR
         )
 
-        # Get the map update
-        wb = load_workbook(XLSX_DATA_MAP, read_only=True)
-        ws = wb['update']
-        ws_cols = list(c.value for c in ws[1])
-
         # Lists of database records to update
         map_update = []
         trs_path_delete = []
@@ -86,9 +72,13 @@ def update_map(do_update):
         signed_by_delete = []
         signed_by_insert = []
 
-        for ws_row in ws.iter_rows(min_row=2):
+        # Get the map update
+        ws = wb['update']
+        xl_cols = list(c.value for c in ws[1])
 
-            xl_rec = dict(zip((k.lower() for k in ws_cols), (c.value for c in ws_row)))
+        for xl_row in ws.iter_rows(min_row=2):
+
+            xl_rec = dict(zip((k.lower() for k in xl_cols), (c.value for c in xl_row)))
             if xl_rec['map_id'] is None:
                 continue
 
@@ -115,8 +105,7 @@ def update_map(do_update):
 
             # Add parcel map/tract numbers to client records
             if all(xl_rec[col] for col in ('maptype', 'book', 'page')):
-                book_page = '{:03d}{:s}{:03d}'.format(
-                    xl_rec['book'], maptype_abbrev[xl_rec['maptype']], xl_rec['page'])
+                book_page = '%s-%s' % (xl_rec['book'], xl_rec['page'])
                 if xl_rec['maptype'] == 'Parcel Map' and book_page in pm_number:
                     xl_rec['client'] += ' (PM%s)' % pm_number[book_page]
                 elif xl_rec['maptype'] == 'Record Map' and book_page in tract_number:
@@ -154,8 +143,7 @@ def update_map(do_update):
 
         wb.close()
 
-        if do_update:
-
+        if update_db:
             # Add or update the TRS source id
             cur.execute("""
                 INSERT INTO {table_source} AS s (id, description, quality)
@@ -167,63 +155,93 @@ def update_map(do_update):
             """.format(table_source=TABLE_PROD_SOURCE), TRS_SOURCE)
             con.commit()
 
-            if map_update:
-                # Insert/update the map records
-                cur.executemany("""
-                    INSERT INTO {table_map} AS m (
-                        id, maptype_id, book, page, npages, recdate, client, description, note
-                    ) VALUES (
-                        %(map_id)s, %(maptype_id)s, %(book)s, %(page)s, %(npages)s,
-                        %(recdate)s, %(client)s, %(description)s, %(note)s
-                    )
-                    ON CONFLICT (id) DO UPDATE
-                    SET maptype_id = %(maptype_id)s, book = %(book)s, page = %(page)s, npages = %(npages)s,
-                        recdate = %(recdate)s, client = %(client)s, description = %(description)s, note = %(note)s
-                    WHERE m.id = %(map_id)s
-                    ;
-                """.format(table_map=TABLE_PROD_MAP), map_update)
-                con.commit()
+        if map_update and update_db:
+            # Insert/update the map records
+            cur.executemany("""
+                INSERT INTO {table_map} AS m (
+                    id, maptype_id, book, page, npages, recdate, client, description, note
+                ) VALUES (
+                    %(map_id)s, %(maptype_id)s, %(book)s, %(page)s, %(npages)s,
+                    %(recdate)s, %(client)s, %(description)s, %(note)s
+                )
+                ON CONFLICT (id) DO UPDATE
+                SET maptype_id = %(maptype_id)s, book = %(book)s, page = %(page)s, npages = %(npages)s,
+                    recdate = %(recdate)s, client = %(client)s, description = %(description)s, note = %(note)s
+                WHERE m.id = %(map_id)s
+                ;
+            """.format(table_map=TABLE_PROD_MAP), map_update)
+            con.commit()
 
-                print('INSERT/UPDATE map: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+            print('INSERT/UPDATE map: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
 
-            if trs_path_delete:
-                # Delete trs path records
-                cur.executemany("""
-                    DELETE FROM {table_trs_path}
-                    WHERE map_id = %s AND trs_path = %s;
-                """.format(table_trs_path=TABLE_PROD_TRS_PATH), trs_path_delete)
-                con.commit()
+        elif map_update:
+            print('INSERT/UPDATE map:')
+            for i in range(len(map_update)):
+                print('[%d] %s' % (i + 1, map_update[i]))
 
-                print('DELETE trs_path: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+        if trs_path_delete and update_db:
+            # Delete trs path records
+            cur.executemany("""
+                DELETE FROM {table_trs_path}
+                WHERE map_id = %s AND trs_path = %s;
+            """.format(table_trs_path=TABLE_PROD_TRS_PATH), trs_path_delete)
+            con.commit()
 
-            if trs_path_insert:# Add trs_path records
-                cur.executemany("""
-                    INSERT INTO {table_trs_path} (map_id, trs_path, source_id) VALUES (%s, %s, %s);
-                """.format(table_trs_path=TABLE_PROD_TRS_PATH), trs_path_insert)
-                con.commit()
+            print('DELETE trs_path: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
 
-                print('INSERT trs_path: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+        elif trs_path_delete:
+            print('DELETE trs_path:')
+            for i in range(len(trs_path_delete)):
+                print('[%d] %s' % (i + 1, trs_path_delete[i]))
 
-            if signed_by_delete:
-                # Delete signed_by records
-                cur.executemany("""
-                    DELETE FROM {table_signed_by}
-                    WHERE map_id = %s AND surveyor_id = %s;
-                """.format(table_signed_by=TABLE_PROD_SIGNED_BY), signed_by_delete)
-                con.commit()
+        if trs_path_insert and update_db:
+            # Add trs_path records
+            cur.executemany("""
+                INSERT INTO {table_trs_path} (map_id, trs_path, source_id) VALUES (%s, %s, %s);
+            """.format(table_trs_path=TABLE_PROD_TRS_PATH), trs_path_insert)
+            con.commit()
 
-                print('DELETE signed_by: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+            print('INSERT trs_path: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
 
-            if signed_by_insert:
-                # Add signed_by records
-                cur.executemany("""
-                    INSERT INTO {table_signed_by} (map_id, surveyor_id) VALUES (%s, %s);
-                """.format(table_signed_by=TABLE_PROD_SIGNED_BY), signed_by_insert)
-                con.commit()
+        elif trs_path_insert:
+            print('INSERT trs_path:')
+            for i in range(len(trs_path_insert)):
+                print('[%d] %s' % (i + 1, trs_path_insert[i]))
 
-                print('INSERT signed_by: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+        if signed_by_delete and update_db:
+            # Delete signed_by records
+            cur.executemany("""
+                DELETE FROM {table_signed_by}
+                WHERE map_id = %s AND surveyor_id = %s;
+            """.format(table_signed_by=TABLE_PROD_SIGNED_BY), signed_by_delete)
+            con.commit()
+
+            print('DELETE signed_by: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+
+        elif signed_by_delete:
+            print('DELETE signed_by:')
+            for i in range(len(signed_by_delete)):
+                print('[%d] %s' % (i + 1, signed_by_delete[i]))
+
+        if signed_by_insert and update_db:
+            # Add signed_by records
+            cur.executemany("""
+                INSERT INTO {table_signed_by} (map_id, surveyor_id) VALUES (%s, %s);
+            """.format(table_signed_by=TABLE_PROD_SIGNED_BY), signed_by_insert)
+            con.commit()
+
+            print('INSERT signed_by: %d row%s' % (cur.rowcount, '' if cur.rowcount == 1 else 's'))
+
+        elif signed_by_insert:
+            print('INSERT signed_by:')
+            for i in range(len(signed_by_insert)):
+                print('[%d] %s' % (i + 1, signed_by_insert[i]))
+
+        updates = (map_update, trs_path_delete, trs_path_insert, signed_by_delete, signed_by_insert)
+        if all(len(l) == 0 for l in updates):
+            print('Nothing to do.')
 
 
 if __name__ == '__main__':
 
-    update_map(do_update=True)
+    update_map(update_db=False)

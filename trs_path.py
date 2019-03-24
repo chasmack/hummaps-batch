@@ -251,8 +251,8 @@ def abbrev_paths(paths):
 if __name__ == '__main__':
 
     path_specs = '5N.1E.5,8,9; 6N.1E.33; 5N.1E.4.A-DEFIJKMN; 6N.1E.33.MN; 3N.1W.34.ABEFGHKLOP'
+    paths = expand_paths(re.split(';?\s+', re.sub('[;\s]*$', '', path_specs)))
 
-    paths = expand_paths(re.split(';?\s+', path_specs))
     for path in paths:
         print(path)
 

@@ -1,8 +1,8 @@
 
 # const.py - common constants
 
-XLSX_DATA_MAP = 'data/test65.xlsx'
-# XLSX_DATA_MAP = 'data/update65.xlsx'
+# XLSX_DATA_MAP = 'data/test65.xlsx'
+XLSX_DATA_MAP = 'data/update65.xlsx'
 
 XLSX_DATA_SURVEYOR = 'data/surveyor.xlsx'
 XLSX_DATA_PM = 'data/pm.xlsx'

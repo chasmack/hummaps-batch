@@ -4,7 +4,7 @@ import os
 from const import *
 
 
-def update_pdf(pdf_list, do_update=False):
+def update_pdf(pdf_list, update_db=False):
 
     # S3 PDF files indexed by map name
     s3_pdffile = {}
@@ -51,7 +51,7 @@ def update_pdf(pdf_list, do_update=False):
                 elif s3 != db:
                     print('Bad pdf record: db: %s  s3: %s' % (db, s3))
 
-        if do_update and pdf_insert:
+        if update_db and pdf_insert:
             cur.executemany("""
                 INSERT INTO {table_pdf} (map_id, pdffile) VALUES (%s, %s);
             """.format(table_pdf=TABLE_PROD_PDF), pdf_insert)
@@ -64,4 +64,4 @@ if __name__ == '__main__':
 
     pdf_list = 'maps/190321_pdf.txt'
 
-    update_pdf(pdf_list, do_update=True)
+    update_pdf(pdf_list, update_db=True)

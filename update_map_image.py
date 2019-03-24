@@ -4,7 +4,7 @@ import os
 from const import *
 
 
-def update_image(map_list, do_update=False):
+def update_map_image(map_list, update_db=False):
 
     # S3 image files indexed by map name
     s3_imagefiles = {}
@@ -56,7 +56,7 @@ def update_image(map_list, do_update=False):
                 elif s3 != db:
                     print('Bad image record: db: %s s3: %s' % (', '.join(sorted(db)), ', '.join(sorted(s3))))
 
-        if do_update and map_image_insert:
+        if update_db and map_image_insert:
             cur.executemany("""
                 INSERT INTO {table_map_image} (map_id, page, imagefile) VALUES (%s, %s, %s);
             """.format(table_map_image=TABLE_PROD_MAP_IMAGE), map_image_insert)
@@ -69,4 +69,4 @@ if __name__ == '__main__':
 
     map_list = 'maps/190321_map.txt'
 
-    update_image(map_list, do_update=True)
+    update_map_image(map_list, update_db=True)
