@@ -1,13 +1,38 @@
 
-INSERT INTO hummaps.map (id, maptype_id, book, page, npages, description)
-SELECT 20003, maptype_id, book, page, npages, description
-FROM hummaps.map
-WHERE id = 16323
+SELECT m.id map_id, m.maptype_id, m.book, m.page, m.npages,
+    m.recdate, m.client, m.description, m.note,
+    array_remove(array_agg(DISTINCT p.trs_path::text), NULL) trs_paths,
+    array_remove(array_agg(DISTINCT sb.surveyor_id), NULL) surveyor_ids
+FROM hummaps.map m
+LEFT JOIN hummaps.signed_by sb ON sb.map_id = m.id
+LEFT JOIN hummaps.trs_path p ON p.map_id = m.id
+WHERE m.id = 20003
+GROUP BY m.id
 ;
 
-UPDATE hummaps.map_image SET map_id = 20003 WHERE map_id = 16323;
-UPDATE hummaps.pdf SET map_id = 20003 WHERE map_id = 16323;
-DELETE FROM hummaps.map WHERE id = 16323;
+
+-- SELECT array_agg(abbrev) maptypes FROM hummaps.maptype t;
+
+-- SELECT
+--     lpad(m.book::text, 3, '0') || lower(t.abbrev) || lpad(m.page::text, 3, '0') mapname,
+--     array_remove(array_agg(mi.imagefile), NULL) imagefiles, pdf.pdffile
+-- FROM hummaps.map m
+-- JOIN hummaps.maptype t ON t.id = m.maptype_id
+-- LEFT JOIN hummaps.map_image mi ON mi.map_id = m.id
+-- LEFT JOIN hummaps.pdf pdf ON pdf.map_id = m.id
+-- WHERE t.abbrev = 'UR'
+-- GROUP BY m.id, t.id, pdf.id
+-- ;
+
+-- INSERT INTO hummaps.map (id, maptype_id, book, page, npages, description)
+-- SELECT 20003, maptype_id, book, page, npages, description
+-- FROM hummaps.map
+-- WHERE id = 16323
+-- ;
+
+-- UPDATE hummaps.map_image SET map_id = 20003 WHERE map_id = 16323;
+-- UPDATE hummaps.pdf SET map_id = 20003 WHERE map_id = 16323;
+-- DELETE FROM hummaps.map WHERE id = 16323;
 
 -- SELECT m.id, t.maptype, m.book, m.page
 -- FROM hummaps.map m

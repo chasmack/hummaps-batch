@@ -1,0 +1,5 @@
+ map_id | maptype_id | book | page | npages | recdate | client |  description   | note | trs_paths | surveyor_ids 
+--------+------------+------+------+--------+---------+--------+----------------+------+-----------+--------------
+  20003 |          6 |    5 |   39 |      1 |         |        | NO MAP ON FILE |      | {}        | {}
+(1 row)
+

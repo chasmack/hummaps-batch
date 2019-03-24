@@ -1,7 +1,9 @@
 
 # const.py - common constants
 
-XLSX_DATA_MAP = 'data/update65.xlsx'
+XLSX_DATA_MAP = 'data/test65.xlsx'
+# XLSX_DATA_MAP = 'data/update65.xlsx'
+
 XLSX_DATA_SURVEYOR = 'data/surveyor.xlsx'
 XLSX_DATA_PM = 'data/pm.xlsx'
 XLSX_DATA_TRACT = 'data/tract.xlsx'
@@ -28,7 +30,7 @@ TRS_SOURCE_XLSX_DATA = 4
 
 # Source id for current trs records
 TRS_SOURCE = {
-    'source_id': 10,
+    'source_id': 65,
     'description': 'Batch update 65',
     'quality': None
 }
