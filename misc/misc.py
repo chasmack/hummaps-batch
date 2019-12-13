@@ -18,7 +18,7 @@ def cleanup_surveyors():
 
         surveyor = dict(cur)
 
-    wb = load_workbook(XLSX_DATA_MAP)
+    wb = load_workbook(XLSX_DATA_UPDATE)
     ws = wb['Maps']
     ws_cols = list(c.value for c in ws[1])
     for cell in (dict(zip(ws_cols, row)) for row in ws.iter_rows(min_row=2)):
@@ -31,12 +31,12 @@ def cleanup_surveyors():
         else:
             print('Skipping: %s' % cell['SURVEYORS'].value)
 
-    wb.save(filename=XLSX_DATA_MAP)
+    wb.save(filename=XLSX_DATA_UPDATE)
 
 
 def update_maps():
 
-    wb = load_workbook(XLSX_DATA_MAP)
+    wb = load_workbook(XLSX_DATA_UPDATE)
     ws = wb['Maps']
 
     ws_cols = list(c.value for c in ws[1])
@@ -121,7 +121,7 @@ def update_maps():
 
         print('INSERT pdf: %d rows effected' % cur.rowcount)
 
-        wb.save(filename=XLSX_DATA_MAP)
+        wb.save(filename=XLSX_DATA_UPDATE)
 
 
 if __name__ == '__main__':

@@ -1,14 +1,23 @@
 
-SELECT m.id map_id, m.maptype_id, m.book, m.page, m.npages,
-    m.recdate, m.client, m.description, m.note,
-    array_remove(array_agg(DISTINCT p.trs_path::text), NULL) trs_paths,
-    array_remove(array_agg(DISTINCT sb.surveyor_id), NULL) surveyor_ids
+SELECT m.id map_id,
+    array_remove(array_agg(DISTINCT p.trs_path::text), NULL) trs_paths
 FROM hummaps.map m
-LEFT JOIN hummaps.signed_by sb ON sb.map_id = m.id
 LEFT JOIN hummaps.trs_path p ON p.map_id = m.id
-WHERE m.id = 20003
+WHERE m.id = 6114
 GROUP BY m.id
 ;
+
+
+-- SELECT m.id map_id, m.maptype_id, m.book, m.page, m.npages,
+--     m.recdate, m.client, m.description, m.note,
+--     array_remove(array_agg(DISTINCT p.trs_path::text), NULL) trs_paths,
+--     array_remove(array_agg(DISTINCT sb.surveyor_id), NULL) surveyor_ids
+-- FROM hummaps.map m
+-- LEFT JOIN hummaps.signed_by sb ON sb.map_id = m.id
+-- LEFT JOIN hummaps.trs_path p ON p.map_id = m.id
+-- WHERE m.id = 20003
+-- GROUP BY m.id
+-- ;
 
 
 -- SELECT array_agg(abbrev) maptypes FROM hummaps.maptype t;

@@ -153,7 +153,7 @@ def expand_paths(path_specs):
     return paths
 
 
-# abbrev_paths - create a set of trs path specs from a list of trs paths.
+# abbrev_paths - create a minimal set of trs path specs from a list of trs paths.
 def abbrev_paths(paths):
 
     # Separate sorted paths into paths with subsection terms and those without.

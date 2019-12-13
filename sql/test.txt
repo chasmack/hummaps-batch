@@ -1,0 +1,447 @@
+             hollins             |        fullname        |  firstname  | secondname  | thirdname |   lastname   | suffix | pls  |  rce  
+---------------------------------+------------------------+-------------+-------------+-----------+--------------+--------+------+-------
+ {"R. AANRUD"}                   | R AANRUD               | R           |             |           | AANRUD       |        |      | 
+ {"H. ACHESON"}                  | H C ACHESON            | H           | C           |           | ACHESON      |        |      | 4956
+ {"N. ACKERMAN"}                 | NEWTON ACKERMAN        | NEWTON      |             |           | ACKERMAN     |        |      | 
+ {"R. ACKERMAN"}                 | ROGER L ACKERMAN       | ROGER       | LOUIS       |           | ACKERMAN     |        | 4495 | 
+ {"J. ADAMS"}                    | J A ADAMS              | J           | A           |           | ADAMS        |        |      | 
+ {"E. ALBEE"}                    | EDITH S ALBEE          | EDITH       | S           |           | ALBEE        |        |      | 
+ {"G. ALKIRE"}                   | GARY A ALKIRE          | GARY        | ALAN        |           | ALKIRE       |        | 4149 | 
+ {"B. ANDERSON"}                 | BENJAMIN T ANDERSON    | BENJAMIN    | T           |           | ANDERSON     |        | 2047 | 
+ {"W. ANDERSON"}                 | WILLIAM ANDERSON       | WILLIAM     |             |           | ANDERSON     |        | 1936 | 
+ {"W. ANDREWS"}                  | WILLIAM M ANDREWS      | WILLIAM     | MARION      |           | ANDREWS      |        | 4277 | 
+ {"D. AVERILL"}                  | D R AVERILL            | D           | R           |           | AVERILL      |        | 2823 | 
+ {"A. BACON"}                    | ALONZO BACON           | ALONZO      |             |           | BACON        |        |      | 
+ {"E. BAHR"}                     | E BAHR                 | E           |             |           | BAHR         |        |      | 
+ {"A. BAIRD"}                    | ALLAN M BAIRD          | ALLAN       | MICHAEL     |           | BAIRD        |        |      | 23681
+ {"J. BAKER"}                    | JAMES H BAKER          | JAMES       | HAROLD      |           | BAKER        |        | 4784 | 
+ {"R. BAKER"}                    | ROBERT H BAKER         | ROBERT      | HAROLD      |           | BAKER        |        | 2825 | 
+ {"A. BANNISTER"}                | A BANNISTER            | A           |             |           | BANNISTER    |        |      | 
+ {"L. BANTA"}                    | LORETTA J BANTA        | LORETTA     | JOYCE       |           | BANTA        |        |      | 32794
+ {"J. BARRETT"}                  | JERRY E BARRETT        | JERRY       | E           |           | BARRETT      |        |      | 
+ {"M. BARTELL"}                  | M S BARTELL            | M           | S           |           | BARTELL      |        | 2029 | 
+ {"H. BASHFORD"}                 | HOWARD H BASHFORD      | HOWARD      | H           |           | BASHFORD     |        |      | 22623
+ {"D. BAUER"}                    | D BAUER                | D           |             |           | BAUER        |        |      | 
+ {"R. BEALE"}                    | RICHARD E BEALE        | RICHARD     | EARL        |           | BEALE        |        | 7861 | 
+ {"R. BEEBEE"}                   | RALPH A BEEBEE         | RALPH       | A           |           | BEEBEE       |        |      | 98
+ {"C. BEED"}                     | CARL F W BEED          | CARL        | F           | WILLIAM   | BEED         |        |      | 7181
+ {"M. BERNING"}                  | MELVIN W BERNING       | MELVIN      | W           |           | BERNING      |        |      | 15389
+ {"J. BLODGER"}                  | JOHN W BLODGER         | JOHN        | WINSTON     |           | BLODGER      |        | 4280 | 
+ {"R. BLY"}                      | ROBERT L BLY           | ROBERT      | LELAND      |           | BLY          |        |      | 16503
+ {"R. BOEHNE"}                   | RALPH L BOEHNE         | RALPH       | L           |           | BOEHNE       |        |      | 4153
+ {"A. BONES",A.BONES}            | ARNE B BONES           | ARNE        | B           |           | BONES        |        | 2020 | 
+ {"C. BONOMINI"}                 | CARL A BONOMINI        | CARL        | ALBERT      |           | BONOMINI     |        |      | 26121
+ {"H. BONTE"}                    | HARMON S BONTE         | HARMON      | S           |           | BONTE        |        | 889  | 
+ {"G. BOUGHTON"}                 | GARY D BOUGHTON        | GARY        | DEAN        |           | BOUGHTON     |        |      | 26124
+ {"J. BOWDEN"}                   | J W BOWDEN             | J           | W           |           | BOWDEN       |        |      | 
+ {"H. BOWER"}                    | HUBERT I BOWER         | HUBERT      | I           |           | BOWER        |        | 1727 | 
+ {"G. BRADFORD"}                 | G BRADFORD             | G           |             |           | BRADFORD     |        |      | 
+ {"D. BRADLEY"}                  | DAVID R BRADLEY        | DAVID       | READ        |           | BRADLEY      |        |      | 20541
+ {"J. BRAINARD"}                 | JAMES C BRAINARD       | JAMES       | CLINTON     |           | BRAINARD     |        | 7051 | 
+ {"J. BRAY"}                     | JAMES G BRAY           | JAMES       | GORDON      |           | BRAY         |        |      | 28967
+ {"A. BRIZARD"}                  | ALEX BRIZARD           | ALEX        |             |           | BRIZARD      |        | 2473 | 
+ {"R. BRONKALL"}                 | ROBERT W BRONKALL      | ROBERT      | W           |           | BRONKALL     |        | 7645 | 55361
+ {"K. BRONSON"}                  | KEVIN B BRONSON        | KEVIN       | BURNELL     |           | BRONSON      |        | 8523 | 
+ {"A. BROWN"}                    | A BROWN                | A           |             |           | BROWN        |        |      | 
+ {"K. BROWN"}                    | KARL H BROWN           | KARL        | HENRY       |           | BROWN        |        |      | 28977
+ {"R. BROWN"}                    | ROBERT J BROWN         | ROBERT      | JAMES       |           | BROWN        |        |      | 24293
+ {"H. BRUNNER"}                  | HOWARD W BRUNNER       | HOWARD      | WILLIAM     |           | BRUNNER      |        | 4206 | 
+ {"S. BRUNT"}                    | S BRUNT                | S           |             |           | BRUNT        |        |      | 
+ {"A. BRYAN"}                    | A BRYAN                | A           |             |           | BRYAN        |        |      | 
+ {"L. BUCK"}                     | LLOYD L BUCK JR        | LLOYD       | LAVERNE     |           | BUCK         | JR     | 5259 | 
+ {"J. BUFFINGTON"}               | JESSE N BUFFINGTON     | JESSE       | NILES       |           | BUFFINGTON   |        | 9339 | 
+ {"J. BURGESS"}                  | JAY A BURGESS          | JAY         | ALLEN       |           | BURGESS      |        | 4790 | 
+ {"C. BURT"}                     | C BURT                 | C           |             |           | BURT         |        |      | 
+ {"D. BUSHNELL  (DAVID)"}        | DAVID L BUSHNELL       | DAVID       | L           |           | BUSHNELL     |        | 7207 | 
+ {"D. BUSHNELL (DONALD)"}        | DONALD E BUSHNELL      | DONALD      | E           |           | BUSHNELL     |        | 2786 | 
+ {"A. CAMPBELL"}                 | ALLEN W CAMPBELL       | ALLEN       | WAYNE       |           | CAMPBELL     |        |      | 20244
+ {"D. CAMPBELL"}                 | DONALD S CAMPBELL      | DONALD      | SPENCER     |           | CAMPBELL     |        | 5262 | 
+ {"Q. CAMPBELL"}                 | Q CAMPBELL             | Q           |             |           | CAMPBELL     |        |      | 
+ {"B. CAPELL"}                   | B CAPELL               | B           |             |           | CAPELL       |        |      | 
+ {"L. CARLETON"}                 | L CARLETON             | L           |             |           | CARLETON     |        |      | 
+ {"D. CARLSON"}                  | DAVID H CARLSON        | DAVID       | H           |           | CARLSON      |        |      | 27515
+ {"J. CARROLL"}                  | J CARROLL              | J           |             |           | CARROLL      |        |      | 
+ {"W. CATHIE"}                   | W CATHIE               | W           |             |           | CATHIE       |        |      | 
+ {"R. CHANDLER"}                 | ROBERT L CHANDLER      | ROBERT      | LEE         |           | CHANDLER     |        |      | 28465
+ {"D. CHAPMAN"}                  | DENNIS P CHAPMAN       | DENNIS      | P           |           | CHAPMAN      |        | 5043 | 
+ {"I. CHAPMAN"}                  | I CHAPMAN              | I           |             |           | CHAPMAN      |        |      | 
+ {"G. CHITTICK"}                 | G CHITTICK             | G           |             |           | CHITTICK     |        |      | 
+ {"M. CLARKE"}                   | M CLARKE               | M           |             |           | CLARKE       |        |      | 
+ {"R. CLIFFORD"}                 | R CLIFFORD             | R           |             |           | CLIFFORD     |        |      | 
+ {"J. COHOON"}                   | JAMES W COHOON         | JAMES       | W           |           | COHOON       |        | 7335 | 
+ {"W. COLISCH"}                  | W COLISCH              | W           |             |           | COLISCH      |        |      | 
+ {"W. CONKLIN"}                  | W CONKLIN              | W           |             |           | CONKLIN      |        |      | 
+ {"J. CONKRIGHT"}                | J CONKRIGHT            | J           |             |           | CONKRIGHT    |        |      | 
+ {"G. CONNERS"}                  | G CONNERS              | G           |             |           | CONNERS      |        |      | 
+ {"G. CONVERSANO"}               | GUY J CONVERSANO       | GUY         | JOHN        |           | CONVERSANO   |        |      | 14398
+ {"F. COOK"}                     | FRED W COOK            | FRED        | WILLARD     |           | COOK         |        | 3966 | 
+ {"F. COPE"}                     | F COPE                 | F           |             |           | COPE         |        |      | 
+ {"L. COPPIN"}                   | L COPPIN               | L           |             |           | COPPIN       |        |      | 
+ {"W. CORBITT"}                  | W CORBITT              | W           |             |           | CORBITT      |        |      | 
+ {"R. COUGHLAN"}                 | R COUGHLAN             | R           |             |           | COUGHLAN     |        |      | 
+ {"J. CRABTREE"}                 | JAMES W CRABTREE       | JAMES       | W           |           | CRABTREE     |        | 4793 | 
+ {"D. CRIVELLI"}                 | DAVID A CRIVELLI       | DAVID       | A           |           | CRIVELLI     |        | 7015 | 
+ {"R. DAHL"}                     | ROBERT W DAHL          | ROBERT      | WILLIAM     |           | DAHL         |        | 4592 | 
+ {"R. DAVIS"}                    | RICHARD B DAVIS        | RICHARD     | BRIAN       |           | DAVIS        |        | 3340 | 
+ {"T. DAVIS"}                    | TERRY A DAVIS          | TERRY       | AUSTIN      |           | DAVIS        |        |      | 30351
+ {"K. DAVLIN"}                   | KENNETH G DAVLIN       | KENNETH     | GROVER      |           | DAVLIN       |        |      | 21533
+ {"R. DAWSON"}                   | RODNEY D DAWSON        | RODNEY      | DALE        |           | DAWSON       |        | 3621 | 
+ {"P. DAY"}                      | P DAY                  | P           |             |           | DAY          |        |      | 
+ {"S. DEAN"}                     | S DEAN                 | S           |             |           | DEAN         |        |      | 
+ {"J. DEARING"}                  | J DEARING              | J           |             |           | DEARING      |        |      | 
+ {"J. DEGRAFF"}                  | J DEGRAFF              | J           |             |           | DEGRAFF      |        |      | 
+ {"F. DEMLING"}                  | FRANK C DEMLING JR     | FRANK       | CHARLES     |           | DEMLING      | JR     | 4969 | 
+ {"W. DINSMORE"}                 | WILLIAM J DINSMORE     | WILLIAM     | JAMES       |           | DINSMORE     |        |      | 29113
+ {"D. DODGE"}                    | D DODGE                | D           |             |           | DODGE        |        |      | 
+ {"A. DOLF"}                     | A DOLF                 | A           |             |           | DOLF         |        |      | 
+ {"J. DOMINICK"}                 | J DOMINICK             | J           |             |           | DOMINICK     |        |      | 
+ {"S. DRAKE"}                    | STEPHEN K DRAKE        | STEPHEN     | K           |           | DRAKE        |        | 9244 | 
+ {"R. DUCRET"}                   | R DUCRET               | R           |             |           | DUCRET       |        |      | 
+ {"J. DUDLEY"}                   | J DUDLEY               | J           |             |           | DUDLEY       |        |      | 
+ {"D. DUKLETH"}                  | D DUKLETH              | D           |             |           | DUKLETH      |        |      | 
+ {"M. EAGAN"}                    | MICHAEL D EAGAN        | MICHAEL     | DAVID       |           | EAGAN        |        |      | 22957
+ {"D. EASON"}                    | D EASON                | D           |             |           | EASON        |        |      | 
+ {"R. ECKER"}                    | R ECKER                | R           |             |           | ECKER        |        |      | 
+ {"J. EDDY JR."}                 | JAMES Q EDDY JR        | JAMES       | QUINCY      |           | EDDY         | JR     | 4530 | 
+ {"P. EHLERT"}                   | P EHLERT               | P           |             |           | EHLERT       |        |      | 
+ {"A. ELAM"}                     | A ELAM                 | A           |             |           | ELAM         |        |      | 
+ {"M. ELDRIDGE"}                 | M ELDRIDGE             | M           |             |           | ELDRIDGE     |        |      | 
+ {"M. ELI"}                      | M ELI                  | M           |             |           | ELI          |        |      | 
+ {"N. ELLERY"}                   | N ELLERY               | N           |             |           | ELLERY       |        |      | 
+ {"R. ELLIS"}                    | R ELLIS                | R           |             |           | ELLIS        |        |      | 
+ {"W. ELSEMORE"}                 | W ELSEMORE             | W           |             |           | ELSEMORE     |        |      | 
+ {"J. ENGVALL"}                  | JOHN P ENGVALL         | JOHN        | P           |           | ENGVALL      |        |      | 12475
+ {"J. ERIKSON"}                  | J ERIKSON              | J           |             |           | ERIKSON      |        |      | 
+ {"J. FACEY"}                    | J FACEY                | J           |             |           | FACEY        |        |      | 
+ {"W. FAUNTLEROY"}               | W FAUNTLEROY           | W           |             |           | FAUNTLEROY   |        |      | 
+ {"P. FERGUSON JR"}              | PAUL F FERGUSON JR     | PAUL        | FRANCIS     |           | FERGUSON     | JR     | 9265 | 
+ {"J. FEYDER"}                   | J FEYDER               | J           |             |           | FEYDER       |        |      | 
+ {"L. FIELDS"}                   | L FIELDS               | L           |             |           | FIELDS       |        |      | 
+ {"O. FINLEY"}                   | O FINLEY               | O           |             |           | FINLEY       |        |      | 
+ {"K. FISHER"}                   | K FISHER               | K           |             |           | FISHER       |        |      | 
+ {"S. FLECKNER"}                 | S FLECKNER             | S           |             |           | FLECKNER     |        |      | 
+ {"R. FORBES"}                   | RANDALL S FORBES       | RANDALL     | SCOTT       |           | FORBES       |        |      | 28493
+ {"S. FOREMAN"}                  | S FOREMAN              | S           |             |           | FOREMAN      |        |      | 
+ {"J. FORSYTH"}                  | JON D FORSYTH          | JON         | DOUGLAS     |           | FORSYTH      |        | 5904 | 36444
+ {"T. FOSS"}                     | T FOSS                 | T           |             |           | FOSS         |        |      | 
+ {"A. FOWLER"}                   | A FOWLER               | A           |             |           | FOWLER       |        |      | 
+ {"D. FRANCIS"}                  | D FRANCIS              | D           |             |           | FRANCIS      |        |      | 
+ {"O. FRANKIE"}                  | O FRANKIE              | O           |             |           | FRANKIE      |        |      | 
+ {"W. FRIEDHOFF"}                | W FRIEDHOFF            | W           |             |           | FRIEDHOFF    |        |      | 
+ {"C. GALLATY"}                  | CHARLES W GALLATY      | CHARLES     | WILLIAM     |           | GALLATY      |        |      | 20181
+ {"C. GALLOWAY"}                 | C GALLOWAY             | C           |             |           | GALLOWAY     |        |      | 
+ {"E. GARDNER"}                  | E GARDNER              | E           |             |           | GARDNER      |        |      | 
+ {"R. GARTON"}                   | RONALD C GARTON        | RONALD      | CHARLES     |           | GARTON       |        | 7717 | 
+ {"E. GASTMAN"}                  | E GASTMAN              | E           |             |           | GASTMAN      |        |      | 
+ {"J. GAWRONSKI"}                | J GAWRONSKI            | J           |             |           | GAWRONSKI    |        |      | 
+ {"F. GEORGESON"}                | F T GEORGESON          | F           | T           |           | GEORGESON    |        |      | 
+ {"J. GHILARDI"}                 | JEFFERY S GHILARDI     | JEFFERY     | SILVIO      |           | GHILARDI     |        | 5125 | 25217
+ {"J. GIACOMINI"}                | J GIACOMINI            | J           |             |           | GIACOMINI    |        |      | 
+ {"J. GILCREST"}                 | J GILCREST             | J           |             |           | GILCREST     |        |      | 
+ {"W. GILLASPY"}                 | W GILLASPY             | W           |             |           | GILLASPY     |        |      | 
+ {"J. GILSON"}                   | J GILSON               | J           |             |           | GILSON       |        |      | 
+ {"G. GOGOS"}                    | GARY D GOGOS           | GARY        | DEAN        |           | GOGOS        |        | 7242 | 
+ {"T. GOLDSMITH"}                | TED G GOLDSMITH        | TED         | GANO        |           | GOLDSMITH    |        | 6157 | 
+ {"G. GOODSON"}                  | G GOODSON              | G           |             |           | GOODSON      |        |      | 
+ {"E. GORGE, JR."}               | EDWARD J GORGE JR      | EDWARD      | JOHN        |           | GORGE        | JR     | 7541 | 
+ {"E. GORGE, SR."}               | EDWARD J GORGE SR      | EDWARD      | JOHN        |           | GORGE        | SR     |      | 22093
+ {"K. GRAY"}                     | K GRAY                 | K           |             |           | GRAY         |        |      | 
+ {"F. GREEN"}                    | F GREEN                | F           |             |           | GREEN        |        |      | 
+ {"D. GREENWELL"}                | D GREENWELL            | D           |             |           | GREENWELL    |        |      | 
+ {"P. GRIFFIN"}                  | P GRIFFIN              | P           |             |           | GRIFFIN      |        |      | 
+ {"G. GRIFFITH"}                 | GERALD H GRIFFITH      | GERALD      | H           |           | GRIFFITH     |        | 3318 | 
+ {"F. GRIMM"}                    | FRANK L GRIMM          | FRANK       | L           |           | GRIMM        |        | 2017 | 
+ {"J. GRIPPI"}                   | J GRIPPI               | J           |             |           | GRIPPI       |        |      | 
+ {"D. GUSTAFSON"}                | DAVID L GUSTAFSON      | DAVID       | L           |           | GUSTAFSON    |        |      | 23355
+ {"A. GUTHRIE"}                  | A GUTHRIE              | A           |             |           | GUTHRIE      |        |      | 
+ {"P. GUTIERREZ"}                | PHILIP A GUTIERREZ JR  | PHILIP      | A           |           | GUTIERREZ    | JR     | 7245 | 
+ {"R. HABERSTOCK"}               | RAYMOND G HABERSTOCK   | RAYMOND     | G           |           | HABERSTOCK   |        | 3431 | 
+ {"D. HALLER"}                   | D HALLER               | D           |             |           | HALLER       |        |      | 
+ {"R. HAMILTON"}                 | R HAMILTON             | R           |             |           | HAMILTON     |        |      | 
+ {"C. HAMON"}                    | C HAMON                | C           |             |           | HAMON        |        |      | 
+ {"H. HANNAH"}                   | H HANNAH               | H           |             |           | HANNAH       |        |      | 
+ {"R. HARALSON"}                 | RANDY G HARALSON       | RANDY       | GREGG       |           | HARALSON     |        | 6611 | 
+ {"J. HARCHARIK"}                | JAMES M HARCHARIK      | JAMES       | M           |           | HARCHARIK    |        | 7683 | 
+ {"J. HARDISON"}                 | J HARDISON             | J           |             |           | HARDISON     |        |      | 
+ {"R. HARKNESS"}                 | RALPH C HARKNESS       | RALPH       | C           |           | HARKNESS     |        |      | 7642
+ {"F. HASELWOOD","L. HASELWOOD"} | F W HASELWOOD          | F           | W           |           | HASELWOOD    |        |      | 
+ {"J. HATHAWAY"}                 | J HATHAWAY             | J           |             |           | HATHAWAY     |        |      | 
+ {"J. HAUGHN"}                   | J HAUGHN               | J           |             |           | HAUGHN       |        |      | 
+ {"D. HELT"}                     | DANIEL C HELT          | DANIEL      | CURTIS      |           | HELT         |        | 8925 | 69347
+ {"S. HELWER"}                   | S HELWER               | S           |             |           | HELWER       |        |      | 
+ {"C. HENDEL"}                   | C HENDEL               | C           |             |           | HENDEL       |        |      | 
+ {"S. HENDERSON"}                | S HENDERSON            | S           |             |           | HENDERSON    |        |      | 
+ {"M. HERMAN"}                   | MATTHEW T HERMAN       | MATTHEW     | THOMAS      |           | HERMAN       |        | 8335 | 
+ {"F. HERRICK"}                  | FRANK E HERRICK        | FRANK       | E           |           | HERRICK      |        |      | 
+ {"R. HERRICK"}                  | R F HERRICK            | R           | F           |           | HERRICK      |        |      | 
+ {"E. HESS"}                     | E HESS                 | E           |             |           | HESS         |        |      | 
+ {"W. HIESTER"}                  | W HIESTER              | W           |             |           | HIESTER      |        |      | 
+ {"R. HILANDS"}                  | R HILANDS              | R           |             |           | HILANDS      |        |      | 
+ {"C. HILL"}                     | CLAIR A HILL           | CLAIR       | A           |           | HILL         |        |      | 5438
+ {"E. HILL"}                     | EDWARD HILL            | EDWARD      |             |           | HILL         |        | 3254 | 
+ {"D. HOAGLAND"}                 | DANIEL E HOAGLAND      | DANIEL      | ELI         |           | HOAGLAND     |        | 8621 | 
+ {"R. HOGAN"}                    | R HOGAN                | R           |             |           | HOGAN        |        |      | 
+ {"W. HOGOBOOM"}                 | W HOGOBOOM             | W           |             |           | HOGOBOOM     |        |      | 
+ {"C. HOLCOMB"}                  | C HOLCOMB              | C           |             |           | HOLCOMB      |        |      | 
+ {"L. HOLCOMB"}                  | LOUIE B HOLCOMB        | LOUIE       | B           |           | HOLCOMB      |        | 7801 | 
+ {"L. HOLMES"}                   | L HOLMES               | L           |             |           | HOLMES       |        |      | 
+ {"M. HOLMES"}                   | MICHAEL J HOLMES       | MICHAEL     | JOHN        |           | HOLMES       |        | 6356 | 
+ {"M. HOUSTON"}                  | MARCUS T HOUSTON       | MARCUS      | TODD        |           | HOUSTON      |        | 7858 | 
+ {"O. HOWARD"}                   | O HOWARD               | O           |             |           | HOWARD       |        |      | 
+ {"J. HUBBARD"}                  | JACK J HUBBARD         | JACK        | JEROME      |           | HUBBARD      |        | 7366 | 
+ {"W. HUFFORD"}                  | WALLACE G HUFFORD      | WALLACE     | GEORGE      |           | HUFFORD      |        |      | 24779
+ {"R. HUNT"}                     | RONALD D HUNT          | RONALD      | DEAN        |           | HUNT         |        | 4570 | 
+ {"D. HUNTER"}                   | D HUNTER               | D           |             |           | HUNTER       |        |      | 
+ {"W. HUNTER"}                   | W HUNTER               | W           |             |           | HUNTER       |        |      | 
+ {"T. HURLBURT"}                 | T HURLBURT             | T           |             |           | HURLBURT     |        |      | 
+ {"W. HYATT"}                    | W HYATT                | W           |             |           | HYATT        |        |      | 
+ {"P. IACONO"}                   | P IACONO               | P           |             |           | IACONO       |        |      | 
+ {"F. INGALLS"}                  | F INGALLS              | F           |             |           | INGALLS      |        |      | 
+ {"J. INGALLS"}                  | J INGALLS              | J           |             |           | INGALLS      |        |      | 
+ {"R. IRVING"}                   | R IRVING               | R           |             |           | IRVING       |        |      | 
+ {"P. JACKSON"}                  | PETER D JACKSON        | PETER       | DARRELL     |           | JACKSON      |        | 8153 | 
+ {"S. JACOBS"}                   | S JACOBS               | S           |             |           | JACOBS       |        |      | 
+ {"R. JACOBSEN"}                 | R JACOBSEN             | R           |             |           | JACOBSEN     |        |      | 
+ {"W. JEWETT"}                   | W JEWETT               | W           |             |           | JEWETT       |        |      | 
+ {"W. JOHNSON"}                  | WILLIAM C JOHNSON      | WILLIAM     | CHARLES     |           | JOHNSON      |        |      | 18584
+ {"C. JOHNSTON"}                 | CHRISTOPHER R JOHNSTON | CHRISTOPHER | RIGGS       |           | JOHNSTON     |        | 6621 | 
+ {"K. JOHNSTON"}                 | KENNETH R JOHNSTON     | KENNETH     | RUSSELL     |           | JOHNSTON     |        | 9194 | 
+ {"S. JOHNSTON"}                 | S JOHNSTON             | S           |             |           | JOHNSTON     |        |      | 
+ {"M. JONES"}                    | M JONES                | M           |             |           | JONES        |        |      | 
+ {"P. JOOS"}                     | P JOOS                 | P           |             |           | JOOS         |        |      | 
+ {"H. JORGENSEN"}                | H JORGENSEN            | H           |             |           | JORGENSEN    |        |      | 
+ {"J. JOSLYN"}                   | J JOSLYN               | J           |             |           | JOSLYN       |        |      | 
+ {"F. JOY"}                      | F JOY                  | F           |             |           | JOY          |        |      | 
+ {"D. KAROLY"}                   | D KAROLY               | D           |             |           | KAROLY       |        |      | 
+ {"R. KAUFFMAN"}                 | R KAUFFMAN             | R           |             |           | KAUFFMAN     |        |      | 
+ {"F. KELLY"}                    | FRANK E KELLY          | FRANK       | E           |           | KELLY        |        | 764  | 220
+ {"H. KELLY"}                    | HUGH E KELLY           | HUGH        | E           |           | KELLY        |        | 2820 | 
+ {"R. KELLY"}                    | ROBERT F KELLY         | ROBERT      | FRANCIS     |           | KELLY        |        |      | 11005
+ {"D. KENDALL"}                  | DAVID A KENDALL        | DAVID       | AARON       |           | KENDALL      |        | 9405 | 
+ {"S. KING"}                     | S KING                 | S           |             |           | KING         |        |      | 
+ {"J. KIRCHMANN"}                | J KIRCHMANN            | J           |             |           | KIRCHMANN    |        |      | 
+ {"R. KLEINER"}                  | ROBERT E KLEINER       | ROBERT      | E           |           | KLEINER      |        | 2808 | 
+ {"F. KLOPP"}                    | FRANKLIN R KLOPP       | FRANKLIN    | ROSS        |           | KLOPP        |        |      | 20758
+ {"B. KNUTH"}                    | BOB R KNUTH            | BOB         | RAY         |           | KNUTH        |        | 7938 | 
+ {"K. KNUTH"}                    | K KNUTH                | K           |             |           | KNUTH        |        |      | 
+ {"B. KOLSTAD"}                  | BARRY L KOLSTAD        | BARRY       | LYLE        |           | KOLSTAD      |        | 5677 | 
+ {"D. KOLSTAD"}                  | DYLAN L KOLSTAD        | DYLAN       | LYLE        |           | KOLSTAD      |        | 8152 | 
+ {"G. KULSTAD"}                  | GUY C KULSTAD          | GUY         | CHARLES     |           | KULSTAD      |        |      | 11950
+ {"N. LABEDZKI"}                 | NICHOLAS F LABEDZKI    | NICHOLAS    | FYODOR      |           | LABEDZKI     |        | 8827 | 
+ {"H. LACY"}                     | H LACY                 | H           |             |           | LACY         |        |      | 
+ {"I. LAGZDINS"}                 | ILMARS LAGZDINS        | ILMARS      |             |           | LAGZDINS     |        |      | 8374
+ {"J. LAMBERT"}                  | JOSEPH F LAMBERT       | JOSEPH      | FRED        |           | LAMBERT      |        | 4264 | 
+ {"S. LAMBETH"}                  | S LAMBETH              | S           |             |           | LAMBETH      |        |      | 
+ {"E. LAMOREAUX"}                | E LAMOREAUX            | E           |             |           | LAMOREAUX    |        |      | 
+ {"O. LARSON"}                   | OSCAR G LARSON         | OSCAR       | G           |           | LARSON       |        |      | 1754
+ {"W. LEROY","H. LEROY"}         | H W LE ROY             | H           | WADE        |           | LE ROY       |        | 4946 | 
+ {"F. LEHMANN"}                  | F LEHMANN              | F           |             |           | LEHMANN      |        |      | 
+ {"J. LENTELL"}                  | J LENTELL              | J           |             |           | LENTELL      |        |      | 
+ {"R. LEVERTON"}                 | R LEVERTON             | R           |             |           | LEVERTON     |        |      | 
+ {"L. LEVIER"}                   | L LEVIER               | L           |             |           | LEVIER       |        |      | 
+ {"E. LEWIS"}                    | E LEWIS                | E           |             |           | LEWIS        |        |      | 
+ {"G. LEWIS"}                    | G LEWIS                | G           |             |           | LEWIS        |        |      | 
+ {"L. LEWIS"}                    | L LEWIS                | L           |             |           | LEWIS        |        |      | 
+ {"R. LEWIS"}                    | R LEWIS                | R           |             |           | LEWIS        |        |      | 
+ {"W. LEWIS"}                    | W LEWIS                | W           |             |           | LEWIS        |        |      | 
+ {"W. LIGHTFOOT"}                | W LIGHTFOOT            | W           |             |           | LIGHTFOOT    |        |      | 
+ {"D. LIPIEC"}                   | DANIEL LIPIEC          | DANIEL      |             |           | LIPIEC       |        | 6632 | 
+ {"A. LOGAN"}                    | A LOGAN                | A           |             |           | LOGAN        |        |      | 
+ {"J. LONG"}                     | JASON M LONG           | JASON       | M           |           | LONG         |        | 8826 | 
+ {"H. LOWDEN"}                   | H LOWDEN               | H           |             |           | LOWDEN       |        |      | 
+ {"D. LUKLETH"}                  | D LUKLETH              | D           |             |           | LUKLETH      |        |      | 
+ {"R. LYDECKER"}                 | R LYDECKER             | R           |             |           | LYDECKER     |        |      | 
+ {"E. MACMILLAN"}                | E MACMILLAN            | E           |             |           | MACMILLAN    |        |      | 
+ {"G. MATSON"}                   | GERALD D MATSON        | GERALD      | D           |           | MATSON       |        |      | 
+ {"J. MAUNDER"}                  | JAMES R MAUNDER        | JAMES       | ROBERT      |           | MAUNDER      |        | 4602 | 
+ {"D. MCBRIDE"}                  | D MCBRIDE              | D           |             |           | MCBRIDE      |        |      | 
+ {"J. MCBRIDE"}                  | J MCBRIDE              | J           |             |           | MCBRIDE      |        |      | 
+ {"J. MCCLARY"}                  | J MCCLARY              | J           |             |           | MCCLARY      |        |      | 
+ {"R. MCCORMICK"}                | R MCCORMICK            | R           |             |           | MCCORMICK    |        |      | 
+ {"J. MCCOY"}                    | J MCCOY                | J           |             |           | MCCOY        |        |      | 
+ {"G. MCDANIEL"}                 | G MCDANIEL             | G           |             |           | MCDANIEL     |        |      | 
+ {"J. MCDANIEL"}                 | J MCDANIEL             | J           |             |           | MCDANIEL     |        |      | 
+ {"J. MCDONOUGH"}                | J MCDONOUGH            | J           |             |           | MCDONOUGH    |        |      | 
+ {"M. MCGEE"}                    | MICHAEL R MCGEE        | MICHAEL     | RANDOLPH    |           | MCGEE        |        | 3945 | 
+ {"M. MCGOVERN"}                 | M MCGOVERN             | M           |             |           | MCGOVERN     |        |      | 
+ {"H. MCGREADY"}                 | H MCGREADY             | H           |             |           | MCGREADY     |        |      | 
+ {"J. MCINTIRE"}                 | J MCINTIRE             | J           |             |           | MCINTIRE     |        |      | 
+ {"F. MCKEE"}                    | F MCKEE                | F           |             |           | MCKEE        |        |      | 
+ {"H. MCLENDON"}                 | H MCLENDON             | H           |             |           | MCLENDON     |        |      | 
+ {"G. MCMURTRY"}                 | G MCMURTRY             | G           |             |           | MCMURTRY     |        |      | 
+ {"W. MEREDITH"}                 | W MEREDITH             | W           |             |           | MEREDITH     |        |      | 
+ {"H. MILLER"}                   | H MILLER               | H           |             |           | MILLER       |        |      | 
+ {"J. MILLER"}                   | J MILLER               | J           |             |           | MILLER       |        |      | 
+ {"J. MOORE"}                    | JACK A MOORE           | JACK        | ALLEN       |           | MOORE        |        |      | 30688
+ {"L. MOORE"}                    | L MOORE                | L           |             |           | MOORE        |        |      | 
+ {"M. MOORE"}                    | MICHAEL J MOORE        | MICHAEL     | JOHN        |           | MOORE        |        | 5160 | 
+ {"E. MORAVEC"}                  | E MORAVEC              | E           |             |           | MORAVEC      |        |      | 
+ {"P. MORRILL"}                  | PATRICK W MORRILL      | PATRICK     | WARD        |           | MORRILL      |        | 6191 | 
+ {"P. MORRIS"}                   | P MORRIS               | P           |             |           | MORRIS       |        |      | 
+ {"W. MOULTON"}                  | W MOULTON              | W           |             |           | MOULTON      |        |      | 
+ {"J. MURRAY (JOHN E. MURRAY)"}  | JOHN E MURRAY          | JOHN        | E           |           | MURRAY       |        |      | 19203
+ {"J. MURRAY (JOHN S. MURRAY)"}  | JOHN S MURRAY          | JOHN        | S           |           | MURRAY       |        |      | 
+ {"W. MYRICK"}                   | W MYRICK               | W           |             |           | MYRICK       |        |      | 
+ {"G. NEITSCH"}                  | G NEITSCH              | G           |             |           | NEITSCH      |        |      | 
+ {"D. NELSON"}                   | DALE E NELSON          | DALE        | ERNEST      |           | NELSON       |        | 5164 | 
+ {"J. NELSON"}                   | J NELSON               | J           |             |           | NELSON       |        |      | 
+ {"K. NELSON"}                   | KENNETH J NELSON       | KENNETH     | JEFFREY     |           | NELSON       |        |      | 31998
+ {"S. NESVOLD"}                  | STEPHEN G NESVOLD      | STEPHEN     | GREGORY     |           | NESVOLD      |        |      | 25681
+ {"F. NEWMAN"}                   | F NEWMAN               | F           |             |           | NEWMAN       |        |      | 
+ {"D. NIEMI"}                    | D NIEMI                | D           |             |           | NIEMI        |        |      | 
+ {"A. NILSON"}                   | ALLAN E NILSON         | ALLAN       | E           |           | NILSON       |        | 3150 | 
+ {"E. NORRIS"}                   | E NORRIS               | E           |             |           | NORRIS       |        |      | 
+ {"M. O'HERN"}                   | MICHAEL J O'HERN       | MICHAEL     | JOSEPH      |           | O'HERN       |        | 4829 | 
+ {"A. O'ROURKE"}                 | ANTHONY J O'ROURKE     | ANTHONY     | JAMES       |           | O'ROURKE     |        | 9348 | 
+ {"R. OAKES"}                    | R OAKES                | R           |             |           | OAKES        |        |      | 
+ {"J. OLIN"}                     | J OLIN                 | J           |             |           | OLIN         |        |      | 
+ {"J. OLSON"}                    | JOHN C OLSON           | JOHN        | CALVIN      |           | OLSON        |        | 3115 | 
+ {"L. OLSON"}                    | L OLSON                | L           |             |           | OLSON        |        |      | 
+ {"K. OMSBERG"}                  | KENNETH J OMSBERG JR   | KENNETH     | JAMES       |           | OMSBERG      | JR     | 4446 | 28556
+ {"G. OTTERBECK"}                | GEORGE P OTTERBECK     | GEORGE      | PALMER      |           | OTTERBECK    |        | 3678 | 29557
+ {"K. PAPE"}                     | K PAPE                 | K           |             |           | PAPE         |        |      | 
+ {"I. PARKER"}                   | I PARKER               | I           |             |           | PARKER       |        |      | 
+ {"R. PATTON"}                   | R PATTON               | R           |             |           | PATTON       |        |      | 
+ {"G. PEARSON"}                  | G PEARSON              | G           |             |           | PEARSON      |        |      | 
+ {"N. PENFOLD"}                  | NEALE B PENFOLD        | NEALE       | B           |           | PENFOLD      |        |      | 12155
+ {"G. PERRIN"}                   | G PERRIN               | G           |             |           | PERRIN       |        |      | 
+ {"O. PETERS"}                   | OTTO F PETERS          | OTTO        | F           |           | PETERS       |        | 2561 | 
+ {"R. PETERSON"}                 | R PETERSON             | R           |             |           | PETERSON     |        |      | 
+ {"A. PHARES"}                   | A PHARES               | A           |             |           | PHARES       |        |      | 
+ {"A. PHELPS"}                   | A PHELPS               | A           |             |           | PHELPS       |        |      | 
+ {"T. PHILLIPPI"}                | T PHILLIPPI            | T           |             |           | PHILLIPPI    |        |      | 
+ {"J. PORTER"}                   | J PORTER               | J           |             |           | PORTER       |        |      | 
+ {"K. PREBOR"}                   | KARL V PREBOR          | KARL        | VON         |           | PREBOR       |        | 8662 | 
+ {"K. PRESTON"}                  | KIMBERLY D PRESTON     | KIMBERLY    | DENISE      |           | PRESTON      |        | 9153 | 62665
+ {"M. PULLEY"}                   | MICHAEL D PULLEY       | MICHAEL     | DAVID       |           | PULLEY       |        | 7793 | 
+ {"M. QUIROS"}                   | MARIO J QUIROS         | MARIO       | JOSEPH      |           | QUIROS       |        | 5009 | 
+ {"J. RABEDEW"}                  | J RABEDEW              | J           |             |           | RABEDEW      |        |      | 
+ {"E. RAGSDALE"}                 | E RAGSDALE             | E           |             |           | RAGSDALE     |        |      | 
+ {"A. RAINES"}                   | A RAINES               | A           |             |           | RAINES       |        |      | 
+ {"G. RAU"}                      | GEORGE C RAU           | GEORGE      | CHRISTOPHER |           | RAU          |        |      | 21908
+ {"G. REDWINE"}                  | G REDWINE              | G           |             |           | REDWINE      |        |      | 
+ {"R. REGER"}                    | RICHARD G REGER        | RICHARD     | GLEN        |           | REGER        |        | 4894 | 
+ {"P. REI"}                      | P REI                  | P           |             |           | REI          |        |      | 
+ {"P. REID"}                     | P REID                 | P           |             |           | REID         |        |      | 
+ {"M. REILLY"}                   | M REILLY               | M           |             |           | REILLY       |        |      | 
+ {"C. REPLOGLE"}                 | CARL S REPLOGLE JR     | CARL        | S           |           | REPLOGLE     | JR     |      | 7885
+ {"E. RICHARDSON"}               | E RICHARDSON           | E           |             |           | RICHARDSON   |        |      | 
+ {"H. RICHARDSON"}               | H RICHARDSON           | H           |             |           | RICHARDSON   |        |      | 
+ {"R. RICHARDSON"}               | ROBERT B RICHARDSON    | ROBERT      | BRUCE       |           | RICHARDSON   |        | 4389 | 
+ {"A. RIELAND"}                  | ANDREW L RIELAND       | ANDREW      | LEROY       |           | RIELAND      |        | 4322 | 
+ {"L. RIELAND"}                  | L RIELAND              | L           |             |           | RIELAND      |        |      | 
+ {"W. BRIGBY"}                   | W B RIGBY              | W           | B           |           | RIGBY        |        |      | 
+ {"W. RIGBY"}                    | W RIGBY                | W           |             |           | RIGBY        |        |      | 
+ {"W. RIGGINS"}                  | WAYNE A RIGGINS        | WAYNE       | ANDREW      |           | RIGGINS      |        | 3596 | 
+ {"D. ROPER"}                    | DALE A ROPER           | DALE        | ALLEN       |           | ROPER        |        | 5504 | 35379
+ {"C. ROSCOE"}                   | CHARLES M ROSCOE       | CHARLES     | M           |           | ROSCOE       |        |      | 9157
+ {"S. ROSCOE"}                   | STANLEY B ROSCOE       | STANLEY     | B           |           | ROSCOE       |        |      | 4588
+ {"R. RUSSE"}                    | R RUSSE                | R           |             |           | RUSSE        |        |      | 
+ {"B. RUSSELL"}                  | BENJAMIN D W RUSSELL   | BENJAMIN    | D           | W         | RUSSELL      |        | 8283 | 
+ {"G. RUTLEDGE"}                 | G RUTLEDGE             | G           |             |           | RUTLEDGE     |        |      | 
+ {"D. RYAN (DAVID)"}             | DAVID J RYAN           | DAVID       | JAMES       |           | RYAN         |        | 6212 | 
+ {"D. RYAN (DENNIS)"}            | DENNIS M RYAN          | DENNIS      | MICHAEL     |           | RYAN         |        |      | 32143
+ {"J. RYAN"}                     | J RYAN                 | J           |             |           | RYAN         |        |      | 
+ {"L. SANCHEZ"}                  | LORIEN A SANCHEZ       | LORIEN      | ALISE       |           | SANCHEZ      |        | 8063 | 
+ {"M. SANCHEZ"}                  | MANUEL A SANCHEZ       | MANUEL      | ANTHONY     |           | SANCHEZ      |        | 8391 | 
+ {"M. SATTEL"}                   | MICHAEL W SATTEL       | MICHAEL     | WALTER      |           | SATTEL       |        |      | 30850
+ {"R. SAUKKO"}                   | R SAUKKO               | R           |             |           | SAUKKO       |        |      | 
+ {"C. SCHALLER"}                 | C SCHALLER             | C           |             |           | SCHALLER     |        |      | 
+ {"J. SCHERF"}                   | JOSEPH J SCHERF        | JOSEPH      | J           |           | SCHERF       |        | 3089 | 
+ {"E. SCHILLINGER"}              | EDWARD SCHILLINGER     | EDWARD      |             |           | SCHILLINGER  |        | 3797 | 25283
+ {"M. SCHILLINGER"}              | MAX A SCHILLINGER      | MAX         | A           |           | SCHILLINGER  |        | 7969 | 
+ {"J. SCHMITT"}                  | J SCHMITT              | J           |             |           | SCHMITT      |        |      | 
+ {"P. SCHMOOK"}                  | PAUL M SCHMOOK         | PAUL        | M           |           | SCHMOOK      |        |      | 
+ {"D. SCHNEIDER"}                | DAVID L SCHNEIDER      | DAVID       | LOREN       |           | SCHNEIDER    |        |      | 27285
+ {"K. SCHOLZ"}                   | K SCHOLZ               | K           |             |           | SCHOLZ       |        |      | 
+ {"L. SCHUMPBERGER"}             | L SCHUMPBERGER         | L           |             |           | SCHUMPBERGER |        |      | 
+ {"T. SEINTURIER"}               | T SEINTURIER           | T           |             |           | SEINTURIER   |        |      | 
+ {"J. SELVAGE"}                  | JOHN R SELVAGE         | JOHN        | ROYAL       |           | SELVAGE      |        |      | 21099
+ {"M. SEVY"}                     | M SEVY                 | M           |             |           | SEVY         |        |      | 
+ {"C. SHALLER"}                  | C SHALLER              | C           |             |           | SHALLER      |        |      | 
+ {"W. SHARP"}                    | W SHARP                | W           |             |           | SHARP        |        |      | 
+ {"J. SHAW"}                     | J SHAW                 | J           |             |           | SHAW         |        |      | 
+ {"L. SHAW"}                     | LEONARD M SHAW         | LEONARD     | MEDFORD     |           | SHAW         |        | 8279 | 
+ {"M. SHEAHAN"}                  | M SHEAHAN              | M           |             |           | SHEAHAN      |        |      | 
+ {"P. SHELCALIN"}                | P SHELCALIN            | P           |             |           | SHELCALIN    |        |      | 
+ {"J. SHEPPARD"}                 | J SHEPPARD             | J           |             |           | SHEPPARD     |        |      | 
+ {"W. SHEPPARD"}                 | WILLIAM E SHEPPARD     | WILLIAM     | EDWARD      |           | SHEPPARD     |        |      | 22288
+ {"J. SIEBERT"}                  | JAMES G SIEBERT        | JAMES       | GREGORY     |           | SIEBERT      |        |      | 19342
+ {"C. SIMONSON"}                 | C SIMONSON             | C           |             |           | SIMONSON     |        |      | 
+ {"H. SLATE"}                    | HAROLD J SLATE         | HAROLD      | JOHN        |           | SLATE        |        |      | 25289
+ {"A. SMITH","H. SMITH"}         | A T SMITH              | A           | T           |           | SMITH        |        |      | 
+ {"E. SMITH"}                    | E SMITH                | E           |             |           | SMITH        |        |      | 
+ {"N. SMITH"}                    | N SMITH                | N           |             |           | SMITH        |        |      | 
+ {"R. SMITH"}                    | ROBERT A SMITH         | ROBERT      | ALLEN       |           | SMITH        |        |      | 74771
+ {"T. SMITH"}                    | T SMITH                | T           |             |           | SMITH        |        |      | 
+ {"F. SOMNER"}                   | F SOMNER               | F           |             |           | SOMNER       |        |      | 
+ {"R. SORENSEN"}                 | R SORENSEN             | R           |             |           | SORENSEN     |        |      | 
+ {"R. SOUDERS"}                  | R SOUDERS              | R           |             |           | SOUDERS      |        |      | 
+ {"B. SOUSA"}                    | B SOUSA                | B           |             |           | SOUSA        |        |      | 
+ {"J. SPAULDING"}                | J SPAULDING            | J           |             |           | SPAULDING    |        |      | 
+ {"W. SPRATFORD"}                | W SPRATFORD            | W           |             |           | SPRATFORD    |        |      | 
+ {"N. SPRINGER"}                 | N SPRINGER             | N           |             |           | SPRINGER     |        |      | 
+ {"W. STADTER"}                  | WALLACE G STADTER      | WALLACE     | GALEN       |           | STADTER      |        | 3650 | 
+ {"J. STEFFAN"}                  | JEFF S STEFFAN         | JEFF        | SCOTT       |           | STEFFAN      |        | 7294 | 60260
+ {"R. STEPHAN"}                  | R STEPHAN              | R           |             |           | STEPHAN      |        |      | 
+ {"T. STEPHENS"}                 | THOMAS N STEPHENS      | THOMAS      | NORMAN      |           | STEPHENS     |        | 6734 | 
+ {"R. STIPOVICH"}                | RICHARD B STIPOVICH    | RICHARD     | B           |           | STIPOVICH    |        | 2583 | 
+ {"H. STOBEL"}                   | H STOBEL               | H           |             |           | STOBEL       |        |      | 
+ {"W. STOCKTON"}                 | WILBERT E STOCKTON     | WILBERT     | E           |           | STOCKTON     |        |      | 14369
+ {"R. STOLL"}                    | R STOLL                | R           |             |           | STOLL        |        |      | 
+ {"G. STRAND"}                   | G STRAND               | G           |             |           | STRAND       |        |      | 
+ {"D. STRAUB"}                   | DONALD J STRAUB        | DONALD      | J           |           | STRAUB       |        |      | 15373
+ {"G. STUBBLEFIELD"}             | G STUBBLEFIELD         | G           |             |           | STUBBLEFIELD |        |      | 
+ {"R. SULLIVAN"}                 | R SULLIVAN             | R           |             |           | SULLIVAN     |        |      | 
+ {"E. SWAN"}                     | E SWAN                 | E           |             |           | SWAN         |        |      | 
+ {"C. SWEET"}                    | C SWEET                | C           |             |           | SWEET        |        |      | 
+ {"W. SWEET"}                    | WALTER B SWEET         | WALTER      | B           |           | SWEET        |        |      | 13184
+ {"A. SWICKARD"}                 | A SWICKARD             | A           |             |           | SWICKARD     |        |      | 
+ {"K. SYVERSON"}                 | KNUT SYVERSON          | KNUT        |             |           | SYVERSON     |        |      | 15504
+ {"K. TAIT"}                     | K TAIT                 | K           |             |           | TAIT         |        |      | 
+ {"C. TAYLOR"}                   | C TAYLOR               | C           |             |           | TAYLOR       |        |      | 
+ {"E. TAYLOR"}                   | E TAYLOR               | E           |             |           | TAYLOR       |        |      | 
+ {"P. TAYLOR"}                   | PHILIP V TAYLOR        | PHILIP      | VAUGHN      |           | TAYLOR       |        | 7925 | 
+ {"D. TEAGUE"}                   | DANNY C TEAGUE         | DANNY       | CHARLES     |           | TEAGUE       |        | 4393 | 
+ {"D. TEEL"}                     | D TEEL                 | D           |             |           | TEEL         |        |      | 
+ {"D. THOMAS"}                   | DANIEL D THOMAS        | DANIEL      | DAVIES      |           | THOMAS       |        |      | 35554
+ {"W. THOMAS"}                   | W THOMAS               | W           |             |           | THOMAS       |        |      | 
+ {"E. THORNE"}                   | E THORNE               | E           |             |           | THORNE       |        |      | 
+ {"M. TIETZ"}                    | M TIETZ                | M           |             |           | TIETZ        |        |      | 
+ {"R. TITERA"}                   | R TITERA               | R           |             |           | TITERA       |        |      | 
+ {"L. TOUT"}                     | L TOUT                 | L           |             |           | TOUT         |        |      | 
+ {"J. TRACY"}                    | J TRACY                | J           |             |           | TRACY        |        |      | 
+ {"C. TRAINA"}                   | CURT D TRAINA          | CURT        | D           |           | TRAINA       |        | 8683 | 
+ {"R. URBAN"}                    | RICHARD G URBAN        | RICHARD     | GLEN        |           | URBAN        |        |      | 16760
+ {"B. VAN ZANDT"}                | B VAN ZANDT            | B           |             |           | VAN ZANDT    |        |      | 
+ {"L. VANDERBILT"}               | L VANDERBILT           | L           |             |           | VANDERBILT   |        |      | 
+ {"T. VROMAN"}                   | TRUEMAN E VROMAN       | TRUEMAN     | EDWARD      |           | VROMAN       |        |      | 19264
+ {"C. WAGNER"}                   | C WAGNER               | C           |             |           | WAGNER       |        |      | 
+ {"J. WAHL"}                     | J WAHL                 | J           |             |           | WAHL         |        |      | 
+ {"L. WALTER"}                   | L WALTER               | L           |             |           | WALTER       |        |      | 
+ {"R. WALTER"}                   | R WALTER               | R           |             |           | WALTER       |        |      | 
+ {"J. WARBOYS"}                  | J WARBOYS              | J           |             |           | WARBOYS      |        |      | 
+ {"W. WATSON"}                   | W WATSON               | W           |             |           | WATSON       |        |      | 
+ {"G. WETMORE"}                  | G WETMORE              | G           |             |           | WETMORE      |        |      | 
+ {"A. WHEELAN"}                  | A WHEELAN              | A           |             |           | WHEELAN      |        |      | 
+ {"F. WHEELER"}                  | F WHEELER              | F           |             |           | WHEELER      |        |      | 
+ {"J. WHIPPLE"}                  | J WHIPPLE              | J           |             |           | WHIPPLE      |        |      | 
+ {"T. WHITE"}                    | THURMAN B WHITE        | THURMAN     | B           |           | WHITE        |        | 2910 | 
+ {"C. WHITEHEAD"}                | C WHITEHEAD            | C           |             |           | WHITEHEAD    |        |      | 
+ {"A. WHITLOW"}                  | A WHITLOW              | A           |             |           | WHITLOW      |        |      | 
+ {"E. WILSEY"}                   | E WILSEY               | E           |             |           | WILSEY       |        |      | 
+ {"R. WILSON"}                   | R WILSON               | R           |             |           | WILSON       |        |      | 
+ {"R. WINKELHAUS"}               | ROBERT L WINKELHAUS    | ROBERT      | L           |           | WINKELHAUS   |        |      | 12650
+ {"G. WINZLER"}                  | G WINZLER              | G           |             |           | WINZLER      |        |      | 
+ {"J. WINZLER"}                  | JOHN R WINZLER         | JOHN        | R           |           | WINZLER      |        |      | 9878
+ {"L. WOOD"}                     | L WOOD                 | L           |             |           | WOOD         |        |      | 
+ {"D. WOODEN"}                   | DONALD N WOODEN        | DONALD      | N           |           | WOODEN       |        |      | 15567
+ {"A. WOODS"}                    | A WOODS                | A           |             |           | WOODS        |        |      | 
+ {"J. WOODS"}                    | J WOODS                | J           |             |           | WOODS        |        |      | 
+ {"W. WRIGHT"}                   | WALLACE E WRIGHT       | WALLACE     | EARL        |           | WRIGHT       |        | 4851 | 
+ {"D. YARRINGTON"}               | D YARRINGTON           | D           |             |           | YARRINGTON   |        |      | 
+ {"C. YOUNG"}                    | CHARLES R YOUNG        | CHARLES     | R           |           | YOUNG        |        |      | 10658
+ {"P. YOUNG"}                    | P YOUNG                | P           |             |           | YOUNG        |        |      | 
+ {"R. YOUNG"}                    | RYAN YOUNG             | RYAN        |             |           | YOUNG        |        | 9088 | 67604
+(443 rows)
+

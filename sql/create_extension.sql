@@ -1,0 +1,4 @@
+
+CREATE EXTENSION IF NOT EXISTS ltree
+    SCHEMA public
+    VERSION "1.1";
